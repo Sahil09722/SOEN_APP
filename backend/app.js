@@ -3,10 +3,12 @@ import morgan from 'morgan';
 import connect from './Db/db.js';
 import userRoutes from './routes/user.routes.js';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 connect();//connecting to database using the function from db.js
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());// for parsing application/json 
 app.use(express.urlencoded({ extended: true }));// for parsing application/x-www-form-urlencoded
 app.use(cookieParser());//for parsing cookies
